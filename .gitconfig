@@ -4,6 +4,9 @@
 [push]
 	default = simple
 
+[alias]
+	root = rev-parse --show-toplevel
+
 # Inlucde local file; if not present git helpfully ignores it.
 # Do this at the end to allow overriding defaults above.
 [include]

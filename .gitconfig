@@ -9,6 +9,8 @@
 	root = rev-parse --show-toplevel
 	# Get to a detached HEAD state on purpose! Usage: `git detach [REF]`
 	detach = !sh -c 'git checkout $(git rev-parse ${1:-HEAD})' --
+	# Print short sha1; usage: `git sha1 [REF]`
+	sha1 = !sh -c 'git rev-parse --short ${1:-HEAD}' --
 
 # Inlucde local file; if not present git helpfully ignores it.
 # Do this at the end to allow overriding defaults above.

@@ -16,3 +16,5 @@
 # Do this at the end to allow overriding defaults above.
 [include]
 	path = .gitconfig.local
+[pull]
+	ff = only

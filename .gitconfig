@@ -13,6 +13,34 @@
 	detach = !sh -c 'git checkout $(git rev-parse ${1:-HEAD})' --
 	# Print short sha1; usage: `git sha1 [REF]`
 	sha1 = !sh -c 'git rev-parse --short ${1:-HEAD}' --
+	# Get the GitHub URL for a GitHub repository. Usage: `git gh-url [REMOTE]`
+	gh-url = "!f() { \
+		if ! remote=${1:-$(git config --get \
+			branch.$(git symbolic-ref --short HEAD).remote)}; \
+		then \
+			echo no remote specified and could not get remote for HEAD; \
+			exit; \
+		fi; \
+		if ! remote_url=$(git config --get remote.$remote.url); \
+		then \
+			echo "could not get URL for remote \\`$remote\\`"; \
+			exit; \
+		fi; \
+		case $remote_url in \
+			git@github.com:*.git) \
+				repo=$(echo $remote_url \
+					| sed 's/git@github.com:\\(.*\\).git/\\1/');; \
+			https://github.com/*) \
+				repo=$(echo $remote_url \
+					| sed 's+https://github.com/\\(.*\\).git+\\1+');; \
+			*) \
+				echo "\\`$remote\\` does not appear to have " \
+					"a GitHub remote url: $remote_url"; \
+				exit 1;; \
+		esac; \
+		echo https://github.com/$repo; \
+	}; \
+	f"
 
 # Inlucde local file; if not present git helpfully ignores it.
 # Do this at the end to allow overriding defaults above.

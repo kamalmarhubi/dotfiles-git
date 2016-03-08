@@ -6,6 +6,9 @@
 [push]
 	default = simple
 
+[rebase]
+	autosquash = true
+
 [alias]
 	# Print absolute path of repo root directory
 	root = rev-parse --show-toplevel

@@ -9,6 +9,9 @@
 [rebase]
 	autosquash = true
 
+[credential]
+	helper = libsecret
+
 [alias]
 	# Print absolute path of repo root directory
 	root = rev-parse --show-toplevel

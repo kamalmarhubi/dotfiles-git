@@ -15,8 +15,8 @@
 [alias]
 	# Print absolute path of repo root directory
 	root = rev-parse --show-toplevel
-	# Print short sha1; usage: `git sha1 [REF]`
-	sha1 = !sh -c 'git rev-parse --short ${1:-HEAD}' --
+	# Print short oid for a commit; usage: `git sha1 [REF]`
+	oid = !sh -c 'git rev-parse --short "${1:-HEAD}^{commit}"' --
 	# Get the GitHub URL for a GitHub repository. Usage: `git gh-url [REMOTE]`
 	gh-url = "!f() { \
 		if ! remote=${1:-$(git config --get \

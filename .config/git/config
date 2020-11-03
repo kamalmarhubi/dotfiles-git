@@ -9,6 +9,8 @@
 [rebase]
 	autosquash = true
 	autostash = true
+	abbreviateCommands = true
+	rescheduleFailedExec = true
 
 [diff]
 	mnemonicPrefix = true

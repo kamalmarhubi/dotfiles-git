@@ -8,6 +8,7 @@
 
 [rebase]
 	autosquash = true
+	autostash = true
 
 [credential]
 	helper = libsecret

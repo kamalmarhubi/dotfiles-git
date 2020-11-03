@@ -10,6 +10,14 @@
 	autosquash = true
 	autostash = true
 
+[diff]
+	mnemonicPrefix = true
+	renames = copies
+	algorithm = histogram
+	indentHeuristic = true
+	colorMoved = dimmed-zebra
+	colorMovedWS = allow-indentation-change
+
 [credential]
 	helper = libsecret
 

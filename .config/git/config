@@ -20,6 +20,10 @@
 	colorMoved = dimmed-zebra
 	colorMovedWS = allow-indentation-change
 
+[log]
+	showRoot = true
+	follow = true
+
 [credential]
 	helper = libsecret
 

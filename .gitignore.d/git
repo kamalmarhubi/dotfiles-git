@@ -1,4 +1,6 @@
 *
+!/.config
+!/.config/git
+!/.config/git/config
 !/.gitignore.d
 !/.gitignore.d/git
-!/.gitconfig

@@ -32,6 +32,8 @@
 	root = rev-parse --show-toplevel
 	# Print short oid for a commit; usage: `git sha1 [REF]`
 	oid = !sh -c 'git rev-parse --short "${1:-HEAD}^{commit}"' --
+	# Get children of specified commit-ish.
+	children = "!f() { git rev-list --all --not $1^@ --children | grep $(git rev-parse $1); }; f"
 	# Get the GitHub URL for a GitHub repository. Usage: `git gh-url [REMOTE]`
 	gh-url = "!f() { \
 		if ! remote=${1:-$(git config --get \

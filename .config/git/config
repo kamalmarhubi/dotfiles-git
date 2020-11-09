@@ -67,3 +67,7 @@
 # Do this at the end to allow overriding defaults above.
 [include]
 	path = config.local
+
+# Override email address as kamal@marhubi.com for dotfiles repos.
+[includeIf "gitdir:~/.config/vcsh/repo.d/"]
+	path = config.dotfiles

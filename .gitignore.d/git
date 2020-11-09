@@ -2,5 +2,6 @@
 !/.config
 !/.config/git
 !/.config/git/config
+!/.config/git/config.dotfiles
 !/.gitignore.d
 !/.gitignore.d/git

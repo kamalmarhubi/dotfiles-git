@@ -34,6 +34,9 @@
 	oid = !sh -c 'git rev-parse --short "${1:-HEAD}^{commit}"' --
 	# Get children of specified commit-ish.
 	children = "!f() { git rev-list --all --not $1^@ --children | grep $(git rev-parse $1); }; f"
+	# These two come from https://stackoverflow.com/a/30998048.
+	find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
+	show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
 	# Get the GitHub URL for a GitHub repository. Usage: `git gh-url [REMOTE]`
 	gh-url = "!f() { \
 		if ! remote=${1:-$(git config --get \

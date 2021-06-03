@@ -71,3 +71,5 @@
 # Override email address as kamal@marhubi.com for dotfiles repos.
 [includeIf "gitdir:~/.config/vcsh/repo.d/"]
 	path = config.dotfiles
+[init]
+	defaultBranch = main
